@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProjectDetails = (props) => {
-  console.log(props);
+  // console.log(props);
   const id = props.match.params.id
   return (
     <div className="container section project-details">

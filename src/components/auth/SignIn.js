@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 
-class CreateProject extends Component {
+class SignIn extends Component {
   state = {
-    title: '',
-    content: '',
+    email: '',
+    password: '',
   }
   handleChange = (event) => {
     // console.log(event.target.value)
@@ -38,4 +38,4 @@ class CreateProject extends Component {
   }
 }
 
-export default CreateProject
+export default SignIn
