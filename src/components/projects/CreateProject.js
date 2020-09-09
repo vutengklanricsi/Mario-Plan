@@ -20,17 +20,17 @@ class CreateProject extends Component {
     return (
       <div className="container">
         <form className="white" onSubmit={ this.handleSubmit }>
-          <h5 className="grey-text text -darken-3">Sign In</h5>
+          <h5 className="grey-text text -darken-3">Create Project</h5>
           <div className="input-field">
-            <label htmlFor="email">Email</label>
-            <input type="email" id="email" onChange={ this.handleChange } />
+            <label htmlFor="title">Title</label>
+            <input type="text" id="title" onChange={ this.handleChange } />
           </div>
           <div className="input-field">
-            <label htmlFor="password">Password</label>
-            <input type="password" id="password" onChange={ this.handleChange } />
+            <label htmlFor="content">Content</label>
+            <textarea className="materialize-textarea" type="text" id="content" onChange={ this.handleChange } />
           </div>
           <div className="input-field">
-            <button className="btn pink lighten-1 z-depth-0">Log in</button>
+            <button className="btn pink lighten-1 z-depth-0">Create</button>
           </div>
         </form>
       </div>
