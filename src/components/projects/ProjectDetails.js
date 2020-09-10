@@ -10,7 +10,8 @@ const ProjectDetails = (props) => {
           <span className="card-title">Project Title - { id }</span>
           <p>Lorem Ipsum is simply dummy text of the printing
            and typesetting industry. Lorem Ipsum has been the
-           industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type an</p>
+           industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type an
+            IFIFFI</p>
         </div>
         <div className="card-action grey lighten-4 grey-text">
           <div>Posted by the next ninja</div>
