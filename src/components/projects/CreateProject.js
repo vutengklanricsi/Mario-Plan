@@ -1,4 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import createProject from '../../store/actions/createProject'
 
 class CreateProject extends Component {
   state = {
@@ -15,6 +17,7 @@ class CreateProject extends Component {
     // console.log(event)
     event.preventDefault();
     console.log(this.state)
+    this.props.createProject(this.state)
   }
   render() {
     return (
@@ -37,5 +40,11 @@ class CreateProject extends Component {
     )
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    createProject: (project) => dispatch(createProject(project))
+  }
+}
 
-export default CreateProject
+export default connect(null, mapDispatchToProps)(CreateProject) // azért rakunk null-t mert a connect fv-nek két paramétere van az
+// egyik a mapStateToProps. és annak a  helyére raktuk a null-t
