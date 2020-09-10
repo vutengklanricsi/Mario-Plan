@@ -3,12 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { createStore } from 'redux'; // ahhoz kell h készítsünk egy eltárolhassuk a rootreducert
+import rootReducer from './store/reducers/rootReducer'; 
+import { Provider } from 'react-redux' // azért kell hogy a store-t vagyis állapotot tároljunk
+
+const store = createStore(rootReducer);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  </Provider>
 );
 
 // If you want your app to work offline and load faster, you can change

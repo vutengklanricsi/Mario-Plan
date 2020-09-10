@@ -5,17 +5,20 @@ class SignIn extends Component {
     email: '',
     password: '',
   }
+
   handleChange = (event) => {
     // console.log(event.target.value)
     this.setState({
       [event.target.id]: event.target.value
     })
   }
+
   handleSubmit = (event) => {
     // console.log(event)
     event.preventDefault();
     console.log(this.state)
   }
+
   render() {
     return (
       <div className="container">
