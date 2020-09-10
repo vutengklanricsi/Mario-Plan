@@ -1,4 +1,4 @@
-import authReducer from './authReducer';
+  import authReducer from './authReducer';
 import projectReducer from './projectReducer';
 import { combineReducers } from 'redux'; // kombinálja a reducerenket eggyé
 
