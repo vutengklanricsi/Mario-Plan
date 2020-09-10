@@ -9,7 +9,7 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux' // azért kell hogy a store-t vagyis állapotot tároljunk
 import thunk from 'redux-thunk';
 
-const store = createStore(rootReducer, applyMiddleware(thunk);
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <Provider store={store}>
