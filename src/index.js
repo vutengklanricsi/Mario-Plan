@@ -66,7 +66,7 @@ const store = createStore(
 // az applymiddleware visszaad egy store enhancer-t mi hozzádhatunk több store-ehnhancer-t a store-hoz és azt a compose-al tesszük meg
 
 const rrfProps = {
-  firebase,
+  firebase: firebase,
   config: fbConfig,
   dispatch: store.dispatch,
   createFirestoreInstance

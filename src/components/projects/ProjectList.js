@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectSummary from './ProjectSummary';
+import { Link } from 'react-router-dom'
 
 const ProjectList = ({projects}) => {
   // console.log(projects);
@@ -8,7 +9,9 @@ const ProjectList = ({projects}) => {
       { projects && projects.map(project => { // double ampersand : ha a jobb oldal true (projects vagyis létezik) akkor végrehajtja a műveletet
       // ha viszont falsy (vagy is a project nem tartalmaz semmit akkor ) akkor nem hajtja végre a műveletet. circuit evauliation
         return (
-          <ProjectSummary project={project} key={project.id} />
+          <Link to={`/project/${project.id}`}>
+            <ProjectSummary project={project} key={project.id} />
+          </Link>
         )
       })}
     </div>

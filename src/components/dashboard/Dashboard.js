@@ -26,7 +26,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
+  // console.log(state)
   return {
     // projects: state.project.projects
     projects: state.firestore.ordered.projects
@@ -40,6 +40,4 @@ export default compose(
     //amikor a firestore adat betölt vagy amikor megváltozik az adatbázisban online, ez előidézi hogy a firestore reducer hogy synceljen a store-nak az state-jével
     // annak a state-nek a projektnek a collection-ével a firestore-ban
   ),
-  connect(mapStateToProps))(
-    Dashboard
-  )
+  connect(mapStateToProps))(Dashboard);

@@ -1,7 +1,7 @@
 import React from 'react'
 
 const ProjectSummary = ({project}) => {
-  console.log(project)
+  // console.log(project)
   return (
     <div>
       <div className="card z-depth-0 project-summary">
