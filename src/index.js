@@ -8,6 +8,7 @@ import { createStore, applyMiddleware } from 'redux'; // ahhoz kell h készíts�
 import rootReducer from './store/reducers/rootReducer'; 
 import { Provider } from 'react-redux' // azért kell hogy a store-t vagyis állapotot tároljunk
 import thunk from 'redux-thunk';
+import getFirestore from ''
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 

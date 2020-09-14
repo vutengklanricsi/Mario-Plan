@@ -17,9 +17,9 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 firebase.analytics();
-firebase.firestore().settings({timestampsInSnapshots: true})
+// firebase.firestore().settings({timestampsInSnapshots: true})
 
 export default firebase;
 
-// Inicializálj a firestore-t és és hozzáadjuk a settings-et aminek átadunk egy objektumot egy propertyt adunk át neki amit timestampsinSnapshots.
+// Inicializálja a firestore-t és és hozzáadjuk a settings-et aminek átadunk egy objektumot egy propertyt adunk át neki amit timestampsinSnapshots.
 // Ez egy update a firebase library-ben ami megváltoztatja, hogy működik a firebase time stamps-el
