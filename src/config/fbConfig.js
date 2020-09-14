@@ -1,11 +1,10 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
+import firebase from 'firebase/app'; // firebase lirbrary mi csak a base feature-eket teleíptjük fel a firebaseből
+import 'firebase/firestore'; // ez az adatbázis
+import 'firebase/auth'; // authentikáció
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-
 const firebaseConfig = {
-    apiKey: "AIzaSyD7q5AiDhRREuuJKbnvhI_o2W8dpNmjNeg",
+    apiKey: "AIzaSyD7q5AiDhRREuuJKbnvhI_o2W8dpNmjNeg", // identification key , megállapítja melyik firebase projecthez csatlakozzon,
     authDomain: "marioplan-e13d9.firebaseapp.com",
     databaseURL: "https://marioplan-e13d9.firebaseio.com",
     projectId: "marioplan-e13d9",

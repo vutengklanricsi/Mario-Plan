@@ -47,17 +47,12 @@ import * as serviceWorker from "./serviceWorker";
 import { createStore, applyMiddleware, compose } from "redux";  // ahhoz kell h készítsünk egy eltárolhassuk a rootreducert
 // ahhoz h tudjuk használni a thunk-ot az applymiddlewaret be kell importálnunk
 import rootReducer from "./store/reducers/rootReducer";
-
 import { Provider } from 'react-redux' // azért kell hogy a store-t vagyis állapotot tároljunk.
 import thunk from "redux-thunk";
-
 import { reduxFirestore, getFirestore, createFirestoreInstance } from "redux-firestore";
-
 import { ReactReduxFirebaseProvider, getFirebase } from "react-redux-firebase";
-
 import fbConfig from "./config/fbConfig";
 import firebase from "firebase/app";
-
 
 const store = createStore(
   rootReducer,
@@ -77,7 +72,6 @@ const rrfProps = {
   createFirestoreInstance
 };
 
-
 ReactDOM.render(
   <Provider store={store}>
     <ReactReduxFirebaseProvider {...rrfProps}>
@@ -86,6 +80,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById("root")
 );
-
 
 serviceWorker.unregister();
