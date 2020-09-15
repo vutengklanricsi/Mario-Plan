@@ -4,7 +4,8 @@ import { firestoreConnect } from 'react-redux-firebase';
 import { compose } from 'redux';
 
 const ProjectDetails = (props) => {
-  console.log(props);
+  // console.log(props.match.params)
+  // console.log(props);
   const { project } = props;
   if ( project ) {
     return (
@@ -31,9 +32,11 @@ const ProjectDetails = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
   const id =  ownProps.match.params.id;
+  // console.log(id)
   const projects = state.firestore.data.projects;
   const project = projects ? projects[id] : null;
-  // console.log(state.firestore.data.projects);
+  // console.log(state.firestore.data.projects); // ez a dokumentum id-ja itt az objektumot fogjuk visszakapni amiben benne van a (projekt neve , szerzője stb..)
+  // console.log(project);
   return {
     project: project
   }
