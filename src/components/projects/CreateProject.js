@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { createProject } from '../../store/actions/projectActions'
+import { createProject } from '../../store/actions/projectActions';
+import { Redirect } from 'react-router-dom';
 
 class CreateProject extends Component {
   state = {
@@ -20,6 +21,8 @@ class CreateProject extends Component {
     this.props.createProject(this.state)
   }
   render() {
+    const {auth} = this.props
+    if (!auth.uid) return <Redirect to={'/signin'} />
     return (
       <div className="container">
         <form className="white" onSubmit={ this.handleSubmit }>
@@ -40,11 +43,18 @@ class CreateProject extends Component {
     )
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    auth: state.firebase.auth
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     createProject: (project) => dispatch(createProject(project))
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreateProject) // azért rakunk null-t mert a connect fv-nek két paramétere van az
+export default connect(mapStateToProps, mapDispatchToProps)(CreateProject) // azért rakunk null-t mert a connect fv-nek két paramétere van az
 // egyik a mapStateToProps. és annak a  helyére raktuk a null-t
