@@ -28,8 +28,8 @@ const profileSpecificProps = { // ezt azért csináljuk h felhasználó bejelent
   // így nem lesz üres és fel tudjuk használni az initial state-et
   userProfile: 'users',
   useFirestoreForProfile: true,
-  enableRedirectHandling: false,
-  resetBeforeLogin: false
+  // enableRedirectHandling: false,
+  // resetBeforeLogin: false
 }
 //second config propery added
 const rrfProps = {

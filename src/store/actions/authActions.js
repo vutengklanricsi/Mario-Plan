@@ -34,7 +34,7 @@ export const signUp = (newUser) => {
       //* így szyncelve lesznek egymáshoz
       return firestore.collection('users').doc(response.user.uid).set({ 
         firstName: newUser.firstName,
-        lastName: newUser.lastName,
+        lastName: newUser.lastname,
         initials: newUser.firstName[0] + newUser.lastName[0]
         //* most tároljuk az adatokat az új dokumentumunkba
         //* collection('users') ez nem létezik a firebase-ben de ha adtunk neki adatot akkor a firebase megcsinálja
