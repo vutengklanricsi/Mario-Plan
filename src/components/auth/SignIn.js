@@ -44,7 +44,7 @@ class SignIn extends Component {
               <div className="red-text center">
                 { authError ? <p>{authError}</p> : null }
               </div>
-            </div>v
+            </div>
           </form>
         </div>
         )

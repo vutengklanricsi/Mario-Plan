@@ -17,21 +17,28 @@ const store = createStore(
   rootReducer,
   compose(
     applyMiddleware(thunk.withExtraArgument({ getFirestore, getFirebase })),
-    reduxFirestore(fbConfig) 
+    reduxFirestore(firebase, fbConfig) 
   )
 );
 // átadjuk a firebase-t és a firestore-t. withExtraArgument engedi hogy az action-be paramtéerként átadjuknk neki egy objektumot
 // szeretnénk ha az app rácsatlakozna friebase project-hez. ezt úgy érjük el, hogy a store enhancer-t használjuk 
 // az applymiddleware visszaad egy store enhancer-t mi hozzádhatunk több store-ehnhancer-t a store-hoz és azt a compose-al tesszük meg
 
+const profileSpecificProps = { // ezt azért csináljuk h felhasználó bejelentkezésénél elérjük a profile-ban lévő adatokat.
+  // így nem lesz üres és fel tudjuk használni az initial state-et
+  userProfile: 'users',
+  useFirestoreForProfile: true,
+  enableRedirectHandling: false,
+  resetBeforeLogin: false
+}
+//second config propery added
 const rrfProps = {
-  firebase: firebase,
+  firebase,
   config: fbConfig,
+//second config added here
+  config: profileSpecificProps,
   dispatch: store.dispatch,
-  createFirestoreInstance,
-  // userProfile: 'users', // where profiles are stored in database
-  // presence: 'presence', // where list of online users is stored in database
-  // sessions: 'sessions',
+  createFirestoreInstance
 };
 
 const AuthIsLoaded = ({ children }) => {
