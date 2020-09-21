@@ -7,7 +7,7 @@ export const createProject = (project) => {
     firestore.collection('projects').add({ // ez egy asynchronus hívás.Időbe telik neki
       ...project,
       authorFirstName: profile.firstName,
-      authorLastName: profile.lastname, //! itt a console.log -on csekkold hogy mit kell írni (dashboard-ban console.log(state)
+      authorLastName: profile.lastName, //! itt a console.log -on csekkold hogy mit kell írni (dashboard-ban console.log(state)
       authorId: authorId,
       createdAt: new Date(),
     }).then(() => {//referálunk projects nevű collection-re . hozzáadunk egy egy új dokumentumot az add funkcióval a collection-be.
