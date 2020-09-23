@@ -10,7 +10,7 @@ class Dashboard extends Component {
   render() {
     // console.log(this.props);
     // console.log(this.props.projects);
-    const { projects, auth } = this.props;
+    const { projects, auth, notifications } = this.props;
     if (!auth.uid) return <Redirect to={'/signin'} />
     return (
       <div className="dashboard container">
@@ -19,7 +19,7 @@ class Dashboard extends Component {
             <ProjectList projects={ projects }/>
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications />
+            <Notifications notifications={ notifications }/>
           </div>
         </div>
       </div>
@@ -29,18 +29,19 @@ class Dashboard extends Component {
 const mapStateToProps = (state) => {
   console.log(state)
   console.log(state.firestore.ordered)
-
   return {
     projects: state.firestore.ordered.projects,
     auth: state.firebase.auth,
-    notifications: state.firestore.ordered
+    notifications: state.firestore.ordered.notifications,
   }
 }
 
 export default compose(
   firestoreConnect([ // ez a függvény fog egy array-t paraméterként. ez az array objektumokat fog tartalmazni és ez a obj. megmondja hogy melyik collection-höz
   // szeretne csatlakozni
-    {collection: 'projects'}, { collection: 'notification', limit: 3}  // amikor ez a komponens aktív a collection amire hallgat az a project collection, és amikor ez a komponens betölt 
+    { collection: 'projects', orderBy: ['createdAt', 'desc'] },
+    { collection: 'notifications', limit: 3, orderBy: ['time', 'desc']},
+      // amikor ez a komponens aktív a collection amire hallgat az a project collection, és amikor ez a komponens betölt 
     //amikor a firestore adat betölt vagy amikor megváltozik az adatbázisban online, ez előidézi hogy a firestore reducer hogy synceljen a store-nak az state-jével
     // annak a state-nek a projektnek a collection-ével a firestore-ban
   ]),

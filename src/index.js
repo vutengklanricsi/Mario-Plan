@@ -54,8 +54,8 @@ const AuthIsLoaded = ({ children }) => {
 //! http://react-redux-firebase.com/docs/recipes/auth.html#wait-for-auth-to-load
 //! link a ahhoz, hogy ne renderelje ki bejelentkezésnél a másik komponenst.
 ReactDOM.render(
-  <Provider store={store}>
-    <ReactReduxFirebaseProvider {...rrfProps}>
+  <Provider store={ store }>
+    <ReactReduxFirebaseProvider { ...rrfProps }>
       <AuthIsLoaded>
         <App />
       </AuthIsLoaded>
